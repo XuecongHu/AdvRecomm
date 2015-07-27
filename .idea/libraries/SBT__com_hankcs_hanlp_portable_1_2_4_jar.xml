@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: com.hankcs:hanlp:portable-1.2.4:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.hankcs/hanlp/jars/hanlp-portable-1.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.hankcs/hanlp/docs/hanlp-portable-1.2.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.hankcs/hanlp/srcs/hanlp-portable-1.2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
