@@ -1,4 +1,4 @@
-package com.AdvRecomm.util
+package com.advrecomm.util
 
 /**
  * Created by frank on 15-7-27.

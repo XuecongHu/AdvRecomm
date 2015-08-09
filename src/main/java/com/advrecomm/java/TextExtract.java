@@ -1,4 +1,4 @@
-package com.AdvRecomm.java;
+package com.advrecomm.java;
 
 import java.io.IOException;
 import java.util.ArrayList;

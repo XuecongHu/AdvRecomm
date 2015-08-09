@@ -1,7 +1,10 @@
-package com.AdvRecomm
+package com.advrecomm
 
+import com.advrecomm.extractor.{BPExtractor,CxExtractor}
+import org.apache.spark.sql.types.{StringType, StructType, StructField}
 import org.apache.spark.{SparkContext, SparkConf}
-import com.AdvRecomm.vo.UserText
+import org.apache.spark.sql.{SaveMode, Row, SQLContext}
+
 /**
  * Created by frank on 15-7-27.
  */
@@ -12,13 +15,6 @@ object RunDemo {
     val userLogReader = new UserLogReader()
     val logDatas = userLogReader.readFromLocal(userLogFilesPath)
 
-    val extractor = new WebPageExctrator()
-    val userTexts = extractor.extract(logDatas)
-
-    for (i <- 0 until userTexts.length) {
-      userTexts(i).setWords()
-      println(userTexts(i).words.mkString(","))
-    }
   }
 
   def testSpark(): Unit ={
@@ -29,14 +25,21 @@ object RunDemo {
     val userLogReader = new UserLogReader()
     val logDatas = userLogReader.readFromLocal(userLogFilesPath,sc)
 
-    val extractor = new WebPageExctrator()
-    val userTexts = extractor.extract(logDatas)
-
-    userTexts.map(Tokenizer.seg).foreach(println)
+    val userTexts = logDatas.map(BPExtractor.extract)
+    val userWords = userTexts.map(Tokenizer.seg)
+    userWords.collect().foreach(println)
   }
 
-  def main(args : Array[String]): Unit ={
-    testSpark()
+  def loadLog(): Unit ={
+    val conf = new SparkConf().setAppName("Spark Pi").setMaster("local[4]")
+    val sc = new SparkContext(conf)
+
+    val loadLog = new LoadLog()
+    loadLog.loadLog(sc)
   }
 
+
+  def main(args : Array[String]): Unit = {
+    loadLog()
+  }
 }

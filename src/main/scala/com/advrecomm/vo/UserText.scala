@@ -1,12 +1,13 @@
-package com.AdvRecomm.vo
+package com.advrecomm.vo
 
 /**
  * Created by frank on 15-7-27.
  */
-import com.AdvRecomm.Tokenizer
+import com.advrecomm.Tokenizer
+import java.io.Serializable
 
 class UserText ( val id : String, val text : String, val time : String,
-                 var words : Array[String]){
+                 var words : Array[String]) extends Serializable{
 
   def this ( id : String, text : String, time : String) = {
     this(id,text,time,null)
