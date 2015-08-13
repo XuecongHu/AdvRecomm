@@ -3,8 +3,8 @@ package com.advrecomm.util
 /**
  * Created by frank on 15-7-27.
  */
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.{FileWriter, File, BufferedWriter, IOException}
+;
 import scala.io.Source
 
 object FileUtil {
@@ -24,5 +24,20 @@ object FileUtil {
         case ex : IOException => println("write error :" + text)
       }
     }
+  }
+
+  def writeToFile(path : String, text : String){
+    val file = new File(path)
+    val bWriter = new BufferedWriter(new FileWriter(file))
+    if(text != null && text.length>0){
+      try{
+        println("writing to File :"+ text.length)
+        bWriter.append(text)
+      } catch{
+        case ex : IOException => println("write error :" + text)
+      }
+    }
+    bWriter.flush()
+    bWriter.close()
   }
 }

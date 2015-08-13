@@ -34,12 +34,15 @@ object RunDemo {
     val conf = new SparkConf().setAppName("Spark Pi").setMaster("local[4]")
     val sc = new SparkContext(conf)
 
-    val loadLog = new LoadLog()
-    loadLog.loadLog(sc)
+    val loadLog = new LogOp(sc)
+    loadLog.themesCompletes()
   }
 
 
   def main(args : Array[String]): Unit = {
-    loadLog()
+    val conf = new SparkConf().setAppName("Spark Pi").setMaster("local[4]")
+    val sc = new SparkContext(conf)
+    val logOp = new LogOp(sc)
+    logOp.themesCompletes()
   }
 }
