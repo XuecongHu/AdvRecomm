@@ -125,7 +125,6 @@ object DBRun {
   }
 
 
-
   def main(args:Array[String]): Unit ={
     val conf = new SparkConf().setAppName("Spark Pi").setMaster("local[10]")
     val sc = new SparkContext(conf)

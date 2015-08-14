@@ -20,4 +20,5 @@ object DBConn {
   val userLogTable = "user_log"
   val userThemeTable = "user_theme"
   val userTable = "user"
+  val simiUsersTable = "similar_users"
 }

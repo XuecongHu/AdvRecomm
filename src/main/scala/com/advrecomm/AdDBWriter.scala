@@ -1,7 +1,7 @@
 package com.advrecomm
 
 import com.advrecomm.util.DBConn
-import com.advrecomm.vo.{Themes, User, UserLog}
+import com.advrecomm.vo.{SimilarUser, Themes, User, UserLog}
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{SQLContext, SaveMode}
@@ -47,6 +47,21 @@ class AdDBWriter {
 
     try{
       df.write.mode(SaveMode.Append).jdbc(DBConn.url,DBConn.themesTable,DBConn.properties)
+    }catch{
+      case ex:MySQLIntegrityConstraintViolationException=>{
+        println("数据库主键重复")
+        return false
+      }
+    }
+
+    return true
+  }
+
+  def writeSimiUsersToDB(datas : RDD[SimilarUser] , sqlContext : SQLContext): Boolean ={
+    val df = sqlContext.createDataFrame(datas)
+
+    try{
+      df.write.mode(SaveMode.Append).jdbc(DBConn.url,DBConn.simiUsersTable,DBConn.properties)
     }catch{
       case ex:MySQLIntegrityConstraintViolationException=>{
         println("数据库主键重复")
