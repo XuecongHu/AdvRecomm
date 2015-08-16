@@ -79,6 +79,17 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="SBT: com.googlecode.efficient-java-matrix-library:ejml:0.23:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.io7m.xom:xom:1.2.10:jar" level="project" />
+    <orderEntry type="library" name="SBT: de.jollyday:jollyday:0.4.7:jar" level="project" />
+    <orderEntry type="library" name="SBT: edu.stanford.nlp:stanford-corenlp:3.5.2:jar" level="project" />
+    <orderEntry type="library" name="SBT: javax.json:javax.json-api:1.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: javax.xml.bind:jaxb-api:2.2.7:jar" level="project" />
+    <orderEntry type="library" name="SBT: joda-time:joda-time:2.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: xalan:xalan:2.7.0:jar" level="project" />
     <orderEntry type="library" name="spark-assembly-1.4.0-hadoop2.4.0" level="project" />
+    <orderEntry type="library" name="ansj_seg-2.0.8" level="project" />
+    <orderEntry type="library" name="word-1.2" level="project" />
+    <orderEntry type="library" name="logback-core-0.9.28" level="project" />
   </component>
 </module>

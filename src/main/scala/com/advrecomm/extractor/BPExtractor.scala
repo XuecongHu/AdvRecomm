@@ -8,11 +8,15 @@ package com.advrecomm.extractor
  */
 
 import com.advrecomm.vo.{UserText, UserLog}
-import de.l3s.boilerpipe.extractors.ArticleExtractor
+import de.l3s.boilerpipe.extractors._
 
 object BPExtractor extends GeneralExtractor{
 
   override def extract(userLog: UserLog): UserText = {
-    return extractFromWebPage(userLog,ArticleExtractor.INSTANCE.getText)
+    return extractFromWebPage(userLog, ArticleExtractor.INSTANCE.getText)
+  }
+
+  override def htmlParser(url:String): String ={
+    return htmlParserFunc(url, ArticleExtractor.INSTANCE.getText)
   }
 }

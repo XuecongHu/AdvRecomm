@@ -13,4 +13,9 @@ object CxExtractor extends GeneralExtractor{
     val textExtract = new TextExtract()
     return extractFromWebPage(userLog,textExtract.parse)
   }
+
+  override def htmlParser(url:String): String ={
+    val textExtract = new TextExtract()
+    return htmlParserFunc(url, textExtract.parse)
+  }
 }

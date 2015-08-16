@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="logback-core-0.9.28">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/local/lib/word-v1.2/logback-core-0.9.28.jar!/" />
+      <root url="jar://$USER_HOME$/local/lib/word-v1.2/logback-classic-0.9.28.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

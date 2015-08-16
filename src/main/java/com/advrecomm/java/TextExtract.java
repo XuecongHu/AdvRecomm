@@ -75,7 +75,7 @@ public class TextExtract {
 		source = source.replaceAll("(?is)<script.*?>.*?</script>", ""); // remove javascript
 		source = source.replaceAll("(?is)<style.*?>.*?</style>", "");   // remove css
 		source = source.replaceAll("&.{2,5};|&#.{2,5};", " ");			// remove special char
-		
+
 		//剔除连续成片的超链接文本（认为是，广告或噪音）,超链接多藏于span中
 		source = source.replaceAll("<[sS][pP][aA][nN].*?>", "");
 		source = source.replaceAll("</[sS][pP][aA][nN]>", "");
@@ -86,9 +86,9 @@ public class TextExtract {
 			len = source.length();
 		}
 			;//continue;
-		
+
 		//source = links.matcher(source).replaceAll("");
-		
+
 		//防止html中在<>中包括大于号的判断
 		source = source.replaceAll("<[^>'\"]*['\"].*['\"].*?>", "");
 
@@ -210,7 +210,7 @@ public class TextExtract {
 //
 //System.out.println(TextExtract.preProcess(s));
 		TextExtract t = new TextExtract();
-		Document doc = Jsoup.connect("http://news.cnool.net/0-1-20/134527.html").timeout(10*1000).get(); //获取该url的Docment对象
+		Document doc = Jsoup.connect("http://bbs.cnool.net/cthread-105902980.html").timeout(10*1000).get(); //获取该url的Docment对象
 		System.out.print(t.parse(doc.outerHtml()));
 	}
 }

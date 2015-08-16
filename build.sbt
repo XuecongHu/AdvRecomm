@@ -25,6 +25,9 @@ libraryDependencies  ++= Seq(
   "org.scalanlp" %% "breeze-natives" % "0.10"
 )
 
+libraryDependencies += "edu.stanford.nlp" % "stanford-corenlp" % "3.5.2"
+
+
 resolvers ++= Seq(
   // other resolvers here
   "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
